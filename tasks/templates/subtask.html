@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if subtask_list %}
+    <h1>{{task.task_name}}</h1>
+    <h2>{{task.Task_despcription}}</h2><p>{{task.pub_date}}</p>
+    <ul>
+    {% for subtask in subtask_list %}
+        <li><p>{{ subtask.subtask_text }}</p></li>
+    {% endfor %}
+    </ul>
+    
+    {% if task.Completed == True %}
+    <p>This task is completed</p>
+    {% else %}
+    <p>This task is uncompleted</p>
+    {% endif %}
+{% else %}
+    <p>No tasks are available.</p>
+{% endif %}
+</body>
+</html>
