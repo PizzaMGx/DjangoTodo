@@ -28,11 +28,7 @@ def task_detail(request,task_id):
 
 def task_form(request):
     print({"requestDebug: ": request})
-    if(request.GET.get('addsubtask')):
-        print ({"test":1})
-    else:
-        
-        print (request.GET.get("addsubtask"))
+
     if (request.method == "POST"):
         create_task = addtaskForm(request.POST) # check if the current method is post
         if create_task.is_valid():
@@ -40,7 +36,7 @@ def task_form(request):
             task_d = create_task.cleaned_data["task_description"]
             task_c = create_task.cleaned_data["Completed"] #Store the data
 
-            save_task = Task(task_name = task_n, Task_despcription = task_d, Completed = task_c, pub_date= datetime.datetime.now()) #Create the Model object
+            save_task = Task(task_name = task_n, Task_description = task_d, Completed = task_c, pub_date= datetime.datetime.now()) #Create the Model object
             save_task.save() # save the model object
     create_task = addtaskForm
     return render(request, "form.html", {"form":create_task})
