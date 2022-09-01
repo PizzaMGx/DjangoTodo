@@ -7,22 +7,27 @@
     <title>Document</title>
 </head>
 <body>
-    {% if subtask_list %}
-    <h1>{{task.task_name}}</h1>
+    <h1>{{task.task_name}}</h1> <a href="#">Edit</a> <button>Delete</button>
     <h2>{{task.Task_despcription}}</h2><p>{{task.pub_date}}</p>
+    {% if task.Completed == True %}
+    <p>This task is completed</p>
+    {% else %}
+    <p>This task is uncompleted</p>
+    {% endif %}
+
+    {% if subtask_list %}
+
     <ul>
     {% for subtask in subtask_list %}
         <li><p>{{ subtask.subtask_text }}</p></li>
     {% endfor %}
     </ul>
     
-    {% if task.Completed == True %}
-    <p>This task is completed</p>
-    {% else %}
-    <p>This task is uncompleted</p>
-    {% endif %}
 {% else %}
     <p>No tasks are available.</p>
 {% endif %}
+    <div class="addsubtasks">
+        <button>Add subtask</button>
+    </div>
 </body>
 </html>

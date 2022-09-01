@@ -7,17 +7,19 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
-        <form class="Form_tasks" method="post" >
-            <ul>
-                <label>Task Name</label> <input type="text"> 
-                <label>Task Description</label> <input type="text"> 
-                <button>Add Subtask</button>
-                <div>
-                    <input type="submit">
-                </div>
-            </ul>
-        </form>
-    </div>
+ {% block title %} Create new Task {% endblock %} <!--Tittle of the page-->
+
+ {% block content %} 
+ 
+  <form method="post">
+    {% csrf_token %} <!-- Security Pourposes-->
+    {{form.as_p}}
+    <button type="submit", name="save">save</button>
+    </form>
+    <form method="get">
+        {% csrf_token %}
+        <button type="submit" name="addsubtask">Add Subtask</button>
+    </form>
+ {% endblock %}
 </body>
 </html>
