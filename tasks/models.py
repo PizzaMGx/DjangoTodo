@@ -4,7 +4,7 @@ import datetime
 
 class Task(models.Model): #table
     task_name = models.CharField(max_length=200) #Field or column
-    Task_despcription = models.CharField(max_length=500) #Field or column
+    Task_description = models.CharField(max_length=500) #Field or column
     Completed = models.BooleanField()
     pub_date = models.DateTimeField('date published')
 

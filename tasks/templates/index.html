@@ -1,10 +1,27 @@
-{% if task_list %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    {% if task_list %}
     <ul>
     {% for task in task_list %}
         <li><a href="/{{ task.id }}/">{{ task.task_name }}</a></li>
         <ln>
     {% endfor %}
     </ul>
+    
 {% else %}
     <p>No tasks are available.</p>
 {% endif %}
+<div class="AddTask">
+   <a class="btn" href="form">Add task</a>
+</div>
+</body>
+</html>
